@@ -1,4 +1,4 @@
-# web_app_2024_25
+# e_commerce_website_2024_25
 
 # E-COMMERCE WEBSITE
 
