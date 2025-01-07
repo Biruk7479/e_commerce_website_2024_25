@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid col-md-10 border-bottom">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center justify-content-between" href="/">
+          <img
+            width="45px"
+            src="assets/images/logo.png"
+            alt="logo"
+            class="pb-3"
+          />
+          <span class="ms-2">GEBEYA</span>
+          <!-- ms-2 adds some margin to the left of the text -->
+        </a>
+
+        <!-- Toggle Button for Small Screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="/collection.html">COLLECTION</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <!-- Right Side Icons -->
+          <div class="d-flex align-items-center position-relative">
+            <!-- Search Icon -->
+            <button class="btn btn-link p-0 " onclick="showSearch()">
+              <img width="25px" src="./assets/icons/search-line.svg" alt="Search" class="w-5" />
+            </button>
+            <div id="searchBar" class="ms-1 ">
+                <input type="text" class="form-control" placeholder="Search..." />
+              </div>
+          
+            <!-- Profile Icon -->
+            <a href="/login" class="me-3 ms-3">
+              <img width="20px"src="./assets/icons/user-regular.svg" alt="Profile" class="w-5" />
+            </a>
+          
+            <!-- Cart Icon -->
+            <a href="/cart" class="position-relative">
+              <img width="25px" src="./assets/icons/shopping-cart-line.svg" alt="Cart" class="w-5" />
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                24
+              </span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Menu for Small Screens -->
+    <div
+      id="sidebarMenu"
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/collection">COLLECTION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container py-5">
+        <div class="row">
+            <!-- Image Section -->
+            <div class="col-md-6 p-3">
+                <img src="assets/images/about.jpg" alt="Teamwork and Innovation" class="img-fluid rounded w-100">
+            </div>
+            <!-- Text Section -->
+            <div class="col-md-6 px-3">
+                <h2 class="fw-bold">ABOUT <span class="text-muted">US</span></h2>
+                <p class="text-muted">
+                    Gebeya was born out of the creativity and determination of five university students who shared a vision: 
+                    to make online shopping more accessible, engaging, and innovative. What started as a class project soon evolved 
+                    into a full-fledged platform designed to bring convenience and style into the lives of our users.
+                </p>
+                <p class="text-muted">
+                    Our journey is a testament to teamwork, late-night brainstorming sessions, and a relentless pursuit of excellence. 
+                    We’ve curated a platform that combines cutting-edge technology with a handpicked selection of high-quality products 
+                    tailored to meet your needs. From fashion essentials to lifestyle products, Gebeya brings the best right to your fingertips.
+                </p>
+                <h4 class="fw-bold">Our Mission</h4>
+                <p class="text-muted">
+                    At Gebeya, our mission is to empower our customers to shop confidently and effortlessly. We are committed to 
+                    providing an exceptional online experience that blends innovation, trust, and convenience. From the moment you 
+                    browse to the joy of unboxing, we aim to exceed your expectations every step of the way.
+                </p>
+            </div>
+        </div>
+    </div>
+    
+
+
+    <footer class=" py-4">
+        <div class="container col-md-10 d-flex justify-content-between">
+            <div class="row text-center text-md-start">
+                <!-- Logo and Description -->
+                <div class="col-md-5 mb-4">
+                    <h5 class="fw-bold">GEBEYA</h5>
+                    <p class="text-muted">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+                <!-- Links Section -->
+                <div class="col-md-3 mb-4 ms-auto px-5">
+                    <h6 class="fw-bold">COMPANY</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">About us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Delivery</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3 mb-4 ">
+                    <h6 class="fw-bold">GET IN TOUCH</h6>
+                    <ul class="list-unstyled">
+                        <li class="text-muted">+1-000-000-0000</li>
+                        <li class="text-muted">greatstackdev@gmail.com</li>
+                        <li><a href="#" class="text-muted text-decoration-none">Instagram</a></li>
+                    </ul>
+                </div>
+        </div>
+
+            </div>
+            <!-- Copyright Section -->
+            <div class="text-center border-top pt-3 mt-3">
+                <p class="mb-0">Copyright 2024© - All Right Reserved.</p>
+            </div>
+    </footer>
+    
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="about.js"></script>
+  </body>
+</html>

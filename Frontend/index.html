@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Website</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <!-- <nav
+      class="navbar navbar-expand-lg navbar-scroll fixed-top shadow-0 border-bottom border-dark"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#!"><i class="fab fa-mdb fa-4x"></i></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Our Story</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Membership</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Write</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#!">Sign In</a>
+            </li>
+            <button type="button" class="btn btn-dark ms-3">Get Started</button>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+    <!-- Navbar -->
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid col-md-10 border-bottom">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center justify-content-between" href="/">
+          <img
+            width="45px"
+            src="assets/images/logo.png"
+            alt="logo"
+            class="pb-3"
+          />
+          <span class="ms-2">GEBEYA</span>
+          <!-- ms-2 adds some margin to the left of the text -->
+        </a>
+
+        <!-- Toggle Button for Small Screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/collection.html">COLLECTION</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact.html">CONTACT</a>
+            </li>
+          </ul>
+
+          <!-- Right Side Icons -->
+          <div class="d-flex align-items-center position-relative">
+            <!-- Search Icon -->
+            <button class="btn btn-link p-0 " onclick="showSearch()">
+              <img width="25px" src="./assets/icons/search-line.svg" alt="Search" class="w-5" />
+            </button>
+            <div id="searchBar" class="ms-1 ">
+                <input type="text" class="form-control" placeholder="Search..." />
+              </div>
+          
+            <!-- Profile Icon -->
+            <a href="/login" class="me-3 ms-3">
+              <img width="20px"src="./assets/icons/user-regular.svg" alt="Profile" class="w-5" />
+            </a>
+          
+            <!-- Cart Icon -->
+            <a href="/cart" class="position-relative">
+              <img width="25px" src="./assets/icons/shopping-cart-line.svg" alt="Cart" class="w-5" />
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                24
+              </span>
+            </a>
+          
+            <!-- Search Bar (Initially hidden) -->
+           
+          </div>
+          
+
+            <!-- Menu Icon for Small Screens -->
+            <!-- <button
+              class="btn btn-link p-0 ms-3 d-lg-none"
+              onclick="toggleSidebar()"
+            >
+              <img src="assets/menu_icon.png" alt="Menu" class="w-5" />
+            </button> -->
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Menu for Small Screens -->
+    <div
+      id="sidebarMenu"
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/collection">COLLECTION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- <script>
+      function showSearch() {
+        // Implement search visibility toggle logic here
+      }
+
+      function toggleSidebar() {
+        const sidebar = document.getElementById("sidebarMenu");
+        const bsOffcanvas = new bootstrap.Offcanvas(sidebar);
+        bsOffcanvas.toggle();
+      }
+    </script> -->
+
+    <!-- <div
+      class="d-flex align-items-center justify-content-center text-center"
+      style="height: 1100px"
+    >
+      <p class="h3">
+        Scroll down to see the effect of change the navbar background-color
+      </p>
+    </div> -->
+    <div class="row  col-md-10 m-4 mx-auto d-flex align-items-center border border-2 ">
+        <div class="col-md-6 promo-text p-5">
+            <h6 class="text-uppercase">Our Bestsellers</h6>
+            <h1 class="display-4">Latest Arrivals</h1>
+            <a href="#" class="btn btn-outline-dark mt-3">Shop Now</a>
+        </div>
+        <div class="col-md-6 promo-image p-0 overflow-hidden ">
+            <img src="assets/images/image.jpg" alt="Model" class="img-fluid w-100">
+        </div>
+    </div>
+
+    <div class="container col-md-10 py-5 w-100">
+        <!-- Section Title -->
+        <div class="text-center mb-4">
+            <h3 class="text-uppercase"><span class="text-muted">Latest</span> Collections</h3>
+            <p class="text-muted">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the.</p>
+        </div>
+<!-- this is where the items are being fetched -->
+    <div id="products-container" class="d-flex flex-wrap justify-content-center "></div>
+    </div>
+    
+
+    <div class="container py-5">
+        <div class="row text-center">
+            <!-- Feature 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="assets/images/exchange..jpg" alt="Easy Exchange Policy" class="mb-3" style="width: 50px; height: 50px;">
+                    <h6>Easy Exchange Policy</h6>
+                    <p class="text-muted">We offer hassle-free exchange policy</p>
+                </div>
+            </div>
+            <!-- Feature 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="assets/images/verififed.jpg" alt="7 Days Return Policy" class="mb-3" style="width: 50px; height: 50px;">
+                    <h6>7 Days Return Policy</h6>
+                    <p class="text-muted">We provide 7 days free return policy</p>
+                </div>
+            </div>
+            <!-- Feature 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="d-flex flex-column align-items-center">
+                    <img src="assets/images/support.jpg" alt="Best Customer Support" class="mb-3" style="width: 50px; height: 50px;">
+                    <h6>Best Customer Support</h6>
+                    <p class="text-muted">We provide 24/7 customer support</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class=" py-4">
+        <div class="container col-md-10 d-flex justify-content-between">
+            <div class="row text-center text-md-start">
+                <!-- Logo and Description -->
+                <div class="col-md-5 mb-4">
+                    <h5 class="fw-bold">GEBEYA</h5>
+                    <p class="text-muted">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+                <!-- Links Section -->
+                <div class="col-md-3 mb-4 ms-auto px-5">
+                    <h6 class="fw-bold">COMPANY</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">About us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Delivery</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3 mb-4 ">
+                    <h6 class="fw-bold">GET IN TOUCH</h6>
+                    <ul class="list-unstyled">
+                        <li class="text-muted">+1-000-000-0000</li>
+                        <li class="text-muted">greatstackdev@gmail.com</li>
+                        <li><a href="#" class="text-muted text-decoration-none">Instagram</a></li>
+                    </ul>
+                </div>
+        </div>
+
+            </div>
+            <!-- Copyright Section -->
+            <div class="text-center border-top pt-3 mt-3">
+                <p class="mb-0">Copyright 2024© - All Right Reserved.</p>
+            </div>
+    </footer>
+    
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="index.js"></script>
+  </body>
+</html>

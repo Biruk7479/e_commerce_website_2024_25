@@ -1,0 +1,73 @@
+[
+    {
+        "id": 1,
+        "name": "Men Round Neck Pure Cotton T-shirt",
+        "price": 64.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "A comfortable and durable cotton T-shirt for men."
+    },
+    {
+        "id": 2,
+        "name": "Boy Round Neck Pure Cotton T-shirt",
+        "price": 60.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Soft and breathable T-shirt perfect for boys."
+    },
+    {
+        "id": 3,
+        "name": "Women Zip-Front Relaxed Fit Jacket",
+        "price": 120.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Stylish and comfortable jacket for women."
+    },
+    {
+        "id": 4,
+        "name": "Men Full Sleeve Checked Shirt",
+        "price": 80.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Trendy and classy checked shirt for men."
+    },
+    {
+        "id": 5,
+        "name": "Girl Floral Printed Summer Dress",
+        "price": 75.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Elegant floral dress perfect for summer outings."
+    },
+    {
+        "id": 6,
+        "name": "Women Skinny Fit Denim Jeans",
+        "price": 90.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Comfortable and stylish skinny-fit jeans for women."
+    },
+    {
+        "id": 7,
+        "name": "Boy Hooded Sweatshirt",
+        "price": 55.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Warm and cozy hoodie for boys."
+    },
+    {
+        "id": 8,
+        "name": "Men Sports Track Pants",
+        "price": 70.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Ideal track pants for sports and workouts."
+    },
+    {
+        "id": 9,
+        "name": "Women Round Neck Pure Cotton T-shirt",
+        "price": 65.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Lightweight and breathable T-shirt for women."
+    },
+    {
+        "id": 10,
+        "name": "Girl Zip-Up Hooded Jacket",
+        "price": 85.00,
+        "image": "assets/images/test-image-1.jpg",
+        "description": "Stylish and warm jacket for girls."
+    }
+  
+]

@@ -1,0 +1,50 @@
+* {
+  font-family: "Mirante-SemiBold";
+}
+@font-face {
+  font-family: "Mirante-Black";
+  src: url("../Mirante/Mirante-Black.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mirante-Bold";
+  src: url("../Mirante/Mirante-Bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mirante-ExtraBold";
+  src: url("../Mirante/Mirante-ExtraBold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mirante-Medium";
+  src: url("../Mirante/Mirante-Medium.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Mirante-SemiBold";
+  src: url("../Mirante/Mirante-SemiBold.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.product-item {
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+  transform: scale(1.05); /* Slight zoom effect */
+}
