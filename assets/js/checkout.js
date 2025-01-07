@@ -1,6 +1,14 @@
-// Get the cart from localStorage
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
+import { fetchCartProducts } from "../fetch-api/api.js";
+import { getCart } from "./updateCartBadge.js";
+
+function showSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "flex";
+}
+
+function hideSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "none";
 }
 
 // Save the cart to localStorage
@@ -23,14 +31,14 @@ function getOrders() {
 }
 
 // Fetch product details for the cart
-async function fetchCartProducts(cart) {
-  const promises = cart.map((item) =>
-    fetch(`https://fakestoreapi.com/products/${item.id}`).then((res) =>
-      res.json()
-    )
-  );
-  return Promise.all(promises);
-}
+// async function fetchCartProducts(cart) {
+//   const promises = cart.map((item) =>
+//     fetch(`https://fakestoreapi.com/products/${item.id}`).then((res) =>
+//       res.json()
+//     )
+//   );
+//   return Promise.all(promises);
+// }
 
 /**
  * Display the cart summary on the checkout page.
@@ -54,8 +62,9 @@ async function displayCheckoutSummary() {
     return;
   }
   form.style.display = "block";
-
+  showSpinner();
   const products = await fetchCartProducts(cart);
+  hideSpinner();
   let total = 0;
 
   summaryContainer.innerHTML = `

@@ -1,27 +1,19 @@
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
+import { fetchCartProducts } from "../fetch-api/api.js";
+import updateCartBadge from "./updateCartBadge.js";
+import { getCart } from "./updateCartBadge.js";
+
+function showSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "flex";
+}
+
+function hideSpinner() {
+  const spinner = document.getElementById("loading-spinner");
+  if (spinner) spinner.style.display = "none";
 }
 
 function saveCart(cart) {
   localStorage.setItem("cart", JSON.stringify(cart));
-}
-
-function updateCartBadge() {
-  const cart = getCart();
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartBadge = document.querySelector(".cart-badge");
-  if (cartBadge) {
-    cartBadge.textContent = totalItems;
-  }
-}
-// Fetch product details for the cart
-async function fetchCartProducts(cart) {
-  const promises = cart.map((item) =>
-    fetch(`https://fakestoreapi.com/products/${item.id}`).then((res) =>
-      res.json()
-    )
-  );
-  return Promise.all(promises);
 }
 
 /**
@@ -50,7 +42,9 @@ async function displayCart() {
     return;
   }
   // Display cart items
+  showSpinner();
   const products = await fetchCartProducts(cart);
+  hideSpinner();
 
   let total = 0;
 

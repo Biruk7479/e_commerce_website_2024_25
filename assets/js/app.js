@@ -1,4 +1,12 @@
-"use strict";
+import {
+  fetchProductById,
+  loadComponent,
+  fetchCategories,
+  fetchProducts,
+} from "../fetch-api/api.js";
+import updateCartBadge from "./updateCartBadge.js";
+import { getCart } from "./updateCartBadge.js";
+
 function showSpinner() {
   const spinner = document.getElementById("loading-spinner");
   if (spinner) spinner.style.display = "flex";
@@ -9,88 +17,12 @@ function hideSpinner() {
   if (spinner) spinner.style.display = "none";
 }
 
-async function loadComponent(url, placeholderId) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`Failed to load ${url}: ${response.statusText}`);
-    }
-    const htmlContent = await response.text();
-    const placeholder = document.getElementById(placeholderId);
-    if (placeholder) {
-      placeholder.innerHTML = htmlContent;
-    }
-  } catch (error) {
-    console.error(`Error loading component: ${error.message}`);
-  }
-}
 document.addEventListener("DOMContentLoaded", async () => {
-  await loadComponent("./components/header.html", "header-placeholder");
-  await loadComponent("./components/footer.html", "footer-placeholder");
+  await loadComponent("../components/header.html", "header-placeholder");
+  await loadComponent("../components/footer.html", "footer-placeholder");
   // Initialize the cart badge on page load
   updateCartBadge();
 });
-
-// show products
-// Base URL for Fake Store API
-const API_BASE_URL = "https://fakestoreapi.com";
-
-/**
- * Fetch all product categories from the API.
- * @returns {Promise<Array>} A promise that resolves with an array of categories.
- */
-async function fetchCategories() {
-  try {
-    const response = await fetch(`${API_BASE_URL}/products/categories`);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch categories: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching categories:", error);
-    return [];
-  }
-}
-
-/**
- * Fetch products by category or all products if no category is specified.
- * @param {string|null} category - The category to fetch products for, or null for all products.
- * @returns {Promise<Array>} A promise that resolves with an array of products.
- */
-async function fetchProducts(category = null) {
-  const endpoint = category
-    ? `${API_BASE_URL}/products/category/${category}`
-    : `${API_BASE_URL}/products`;
-
-  try {
-    const response = await fetch(endpoint);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch products: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching products:", error);
-    return [];
-  }
-}
-
-/**
- * Fetch a single product by its ID.
- * @param {number} productId - The ID of the product to fetch.
- * @returns {Promise<Object>} A promise that resolves with the product details.
- */
-async function fetchProductById(productId) {
-  try {
-    const response = await fetch(`${API_BASE_URL}/products/${productId}`);
-    if (!response.ok) {
-      throw new Error(`Failed to fetch product: ${response.statusText}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching product:", error);
-    return null;
-  }
-}
 
 /**
  * Display product categories as buttons, including an "ALL" button.
@@ -120,9 +52,11 @@ async function displayCategories() {
 
     // Add event listeners for category buttons
     document.querySelectorAll(".category-btn").forEach((button) => {
-      button.addEventListener("click", () => {
+      button.addEventListener("click", async () => {
         const category = button.getAttribute("data-category");
-        displayProducts(category === "all" ? null : category);
+        showSpinner();
+        await displayProducts(category === "all" ? null : category);
+        hideSpinner();
       });
     });
   } catch (error) {
@@ -174,7 +108,9 @@ async function displayProducts(category = null) {
     document.querySelectorAll(".view-product-btn").forEach((button) => {
       button.addEventListener("click", async () => {
         const productId = button.getAttribute("data-product-id");
-        displayProductDetails(productId);
+        showSpinner();
+        await displayProductDetails(productId);
+        hideSpinner();
       });
     });
   } catch (error) {
@@ -230,8 +166,10 @@ async function displayProductDetails(productId) {
     // Add event listener for the "Back to Products" button
     document
       .getElementById("back-to-products")
-      .addEventListener("click", () => {
-        displayProducts();
+      .addEventListener("click", async () => {
+        showSpinner();
+        await displayProducts();
+        hideSpinner();
       });
 
     // Add to cart functionality
@@ -245,18 +183,12 @@ async function displayProductDetails(productId) {
 }
 
 // Initialize the app
-document.addEventListener("DOMContentLoaded", () => {
-  displayCategories(); // Fetch and display categories
-  displayProducts(); // Fetch and display all products initially
+document.addEventListener("DOMContentLoaded", async () => {
+  showSpinner();
+  await displayCategories(); // Fetch and display categories
+  await displayProducts(); // Fetch and display all products initially
+  hideSpinner();
 });
-
-/**
- * Get the cart from localStorage.
- * @returns {Array} The cart items.
- */
-function getCart() {
-  return JSON.parse(localStorage.getItem("cart")) || [];
-}
 
 /**
  * Save the cart to localStorage.
@@ -288,13 +220,3 @@ function addToCart(productId) {
 /**
  * Update the cart badge with the number of items.
  */
-function updateCartBadge() {
-  const cart = getCart();
-  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-  const cartBadge = document.querySelector(".cart-badge");
-  if (cartBadge) {
-    cartBadge.textContent = totalItems;
-  } else {
-    console.log("there is no cart badge");
-  }
-}

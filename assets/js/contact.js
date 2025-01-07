@@ -1,14 +1,12 @@
-fetch("../components/header.html")
-  .then((res) => res.text())
-  .then((data) => {
-    document.getElementById("header-placeholder").innerHTML = data;
-  });
+import { loadComponent } from "../fetch-api/api.js";
+import updateCartBadge from "./updateCartBadge.js";
 
-fetch("../components/footer.html")
-  .then((res) => res.text())
-  .then((data) => {
-    document.getElementById("footer-placeholder").innerHTML = data;
-  });
+document.addEventListener("DOMContentLoaded", async () => {
+  await loadComponent("../components/header.html", "header-placeholder");
+  await loadComponent("../components/footer.html", "footer-placeholder");
+  // Initialize the cart badge on page load
+  updateCartBadge();
+});
 
 // Add submit event listener
 const form = document.querySelector(".contact-form");

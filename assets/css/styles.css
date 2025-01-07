@@ -7,7 +7,8 @@
 }
 .banner {
   height: 300px;
-  background: url("../images/team-member-1.jpg") no-repeat center center/cover;
+  background: url("../images/team-members/team-member-1.jpg") no-repeat center
+    center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,7 +29,8 @@
 
 .contact-banner {
   height: 400px;
-  background: url("../images/team-member-2.jpg") no-repeat center center/cover;
+  background: url("../images/team-members/team-member-2.jpg") no-repeat center
+    center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
