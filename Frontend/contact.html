@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    
+    <!-- Bootstrap Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light ">
+      <div class="container-fluid col-md-10 border-bottom">
+        <!-- Logo -->
+        <a class="navbar-brand d-flex align-items-center justify-content-between" href="/">
+          <img
+            width="45px"
+            src="assets/images/logo.png"
+            alt="logo"
+            class="pb-3"
+          />
+          <span class="ms-2">GEBEYA</span>
+          <!-- ms-2 adds some margin to the left of the text -->
+        </a>
+
+        <!-- Toggle Button for Small Screens -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="/collection.html">COLLECTION</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  href="/about.html">ABOUT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active"aria-current="page" href="/">CONTACT</a>
+            </li>
+          </ul>
+
+          <!-- Right Side Icons -->
+          <div class="d-flex align-items-center position-relative">
+            <!-- Search Icon -->
+            <button class="btn btn-link p-0 " onclick="showSearch()">
+              <img width="25px" src="./assets/icons/search-line.svg" alt="Search" class="w-5" />
+            </button>
+            <div id="searchBar" class="ms-1 ">
+                <input type="text" class="form-control" placeholder="Search..." />
+              </div>
+          
+            <!-- Profile Icon -->
+            <a href="/login" class="me-3 ms-3">
+              <img width="20px"src="./assets/icons/user-regular.svg" alt="Profile" class="w-5" />
+            </a>
+          
+            <!-- This is Cart Icon -->
+            <a href="/cart" class="position-relative">
+              <img width="25px" src="./assets/icons/shopping-cart-line.svg" alt="Cart" class="w-5" />
+              <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark">
+                24
+              </span>
+            </a>
+          </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Sidebar Menu for Small Screens -->
+    <div
+      id="sidebarMenu"
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      aria-labelledby="sidebarMenuLabel"
+    >
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="sidebarMenuLabel">Menu</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/collection">COLLECTION</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">ABOUT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/contact">CONTACT</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="row align-items-center">
+            <!-- Image Section -->
+            <div class="col-md-6">
+                <img src="assets/images/contact.png" alt="contact us" class="img-fluid rounded">
+            </div>
+            <!-- Text Section -->
+            <div class="col-md-6">
+                <h2 class="fw-bold">CONTACT <span class="text-muted">US</span></h2>
+                <h5 class="fw-bold mt-4">Our Store</h5>
+                <p>
+                    54709 Willms Station <br>
+                    Suite 350, Washington, USA <br>
+                    Tel: (251) 555-0132 <br>
+                    Email: abbfl@gmail.com
+                </p>
+                <h5 class="fw-bold mt-4">Careers at Forever</h5>
+                <p>Learn more about our teams and job openings.</p>
+                <a href="#" class="btn btn-outline-dark">Explore Jobs</a>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    <footer class=" py-4">
+        <div class="container col-md-10 d-flex justify-content-between">
+            <div class="row text-center text-md-start">
+                <!-- Logo and Description -->
+                <div class="col-md-5 mb-4">
+                    <h5 class="fw-bold">GEBEYA</h5>
+                    <p class="text-muted">
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                    </p>
+                </div>
+                <!-- Links Section -->
+                <div class="col-md-3 mb-4 ms-auto px-5">
+                    <h6 class="fw-bold">COMPANY</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-muted text-decoration-none">Home</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">About us</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Delivery</a></li>
+                        <li><a href="#" class="text-muted text-decoration-none">Privacy policy</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Section -->
+                <div class="col-md-3 mb-4 ">
+                    <h6 class="fw-bold">GET IN TOUCH</h6>
+                    <ul class="list-unstyled">
+                        <li class="text-muted">+1-000-000-0000</li>
+                        <li class="text-muted">greatstackdev@gmail.com</li>
+                        <li><a href="#" class="text-muted text-decoration-none">Instagram</a></li>
+                    </ul>
+                </div>
+        </div>
+
+            </div>
+            <!-- Copyright Section -->
+            <div class="text-center border-top pt-3 mt-3">
+                <p class="mb-0">Copyright 2024© - All Right Reserved.</p>
+            </div>
+    </footer>
+    
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="contact.js"></script>
+  </body>
+</html>
