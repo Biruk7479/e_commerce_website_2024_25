@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deal of the Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        header {
+            background-color: #e67e22;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+        }
+        .deal {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            padding: 50px 0;
+        }
+        .countdown {
+            font-size: 2rem;
+            color: #e67e22;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px;
+        }
+        .product-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        footer {
+            background-color: #e67e22;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Deal of the Day - Limited Time Offer!</h1>
+</header>
+
+<div class="deal">
+    <h2>Hurry! This deal ends in:</h2>
+    <div class="countdown" id="countdown"></div>
+</div>
+
+<div class="product-list">
+    <div class="product-card">
+        <img src="deal1.jpg" alt="Deal Product 1">
+        <h3>50% Off Winter Jacket</h3>
+        <button>Add to Cart</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 DealShop. All Rights Reserved.</p>
+</footer>
+
+<script>
+    const countdown = document.getElementById('countdown');
+    const dealEnd = new Date().getTime() + (10 * 60 * 1000); // 10 minutes
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const timeRemaining = dealEnd - now;
+
+        if (timeRemaining <= 0) {
+            countdown.innerHTML = "Deal Ended!";
+            clearInterval(interval);
+        } else {
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            countdown.innerHTML = `${minutes}m ${seconds}s`;
+        }
+    }
+
+    const interval = setInterval(updateCountdown, 1000);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasonal Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #1abc9c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+        header h1 {
+            font-size: 2rem;
+        }
+        .season-selector {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+        }
+        .season-selector button {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .season-selector button:hover {
+            background-color: #2980b9;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            padding: 50px;
+        }
+        .product-card {
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+        footer {
+            background-color: #1abc9c;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Shop for the Current Season</h1>
+</header>
+
+<div class="season-selector">
+    <button onclick="filterSeason('winter')">Winter</button>
+    <button onclick="filterSeason('spring')">Spring</button>
+    <button onclick="filterSeason('summer')">Summer</button>
+    <button onclick="filterSeason('fall')">Fall</button>
+</div>
+
+<div class="product-list">
+    <div class="product-card winter hidden">
+        <img src="winter-product1.jpg" alt="Winter Product 1">
+        <h3>Winter Jacket</h3>
+        <p>Stay warm during the cold months</p>
+        <button>Add to Cart</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 SeasonalShop. All Rights Reserved.</p>
+</footer>
+
+<script>
+    function filterSeason(season) {
+        const allProducts = document.querySelectorAll('.product-card');
+        const selectedProducts = document.querySelectorAll('.' + season);
+
+        allProducts.forEach(product => product.classList.add('hidden'));
+        selectedProducts.forEach(product => product.classList.remove('hidden'));
+    }
+</script>
+
+</body>
+</html>
