@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowJs": true, // Allow JavaScript files
+    "checkJs": false, // Disable strict checking for JavaScript files
+    "noEmitOnError": false, // Allow output even if there are type errors
+    "strict": false, // Disable strict type checking
+    "skipLibCheck": true, // Skip checking library files
+    "target": "ES6", // Specify ECMAScript target version
+    "module": "ES6", // Specify module system
+    "moduleResolution": "node", // Node-style module resolution
+    "outDir": "./dist", // Output directory for compiled files
+    "rootDir": "./src" // Root directory for source files
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

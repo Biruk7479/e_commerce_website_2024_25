@@ -1,0 +1,115 @@
+<header>
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm border-bottom">
+    <div class="container d-flex justify-content-between">
+      <div>
+        <a class="navbar-brand d-flex align-items-center justify-content-between text-dark" href="#">
+          <img
+            width="45px"
+            src="../assets/images/logo.png"
+            alt="logo"
+            class="pb-3 px-1"
+          />
+          <span class="ms-2">GEBEYA</span>
+          <!-- ms-2 adds some margin to the left of the text -->
+        </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link text-uppercase text-dark fw-bold" aria-current="page" href="./index.html"
+              >Home</a
+            >
+          </li>
+          
+       
+          <li class="nav-item">
+            <a class="nav-link text-uppercase text-dark fw-bold" href="./orders.html">Orders</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase text-dark fw-bold" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-uppercase text-dark fw-bold" href="./contact.html">Contact</a>
+          </li>
+        </ul>
+        <!-- <form class="d-flex ms-3">
+          <input
+            class="form-control me-2 text-muted"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          /> -->
+          <!-- <button class="btn btn-outline-dark" type="submit">Search</button> -->
+        </form>
+      </div>
+      <div>
+  
+         <!-- login -->
+       
+        <a href="./cart.html" class="btn position-relative d-inline opacity-25">
+          <img style=" width: 30px; font-weight: 300; opacity: .75;" src="../assets/icons/shopping-cart-2-line.svg" alt="">
+          <span
+          style="right:10px;"
+            class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-dark text-light cart-badge"
+          >
+            0
+          </span>
+        </a>
+        <a href="../pages/login.html" id="login-btn" class=" mx-1 py-1 btn btn-dark opacity-25 fw-bold ">
+          Login        </a>
+        <a  id="logout-btn" class="d-none mx-1 py-1 btn btn-dark text-light opacity-25 fw-bold  ">
+          Logout     </a>
+       
+      </div>
+      <div>
+    </div>
+  </nav>
+</header>
+<script>
+  document.getElementById('logout-btn').addEventListener('click', async () => {
+  const token = localStorage.getItem('authToken'); 
+  if (token) {
+      try {
+          const response = await fetch('http://localhost:8000/auth/logout', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+                  'Authorization': `Bearer ${token}` 
+              },
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+             console.log("hello");
+              localStorage.removeItem('authToken');
+
+             
+              window.location.href = 'index.html'; // Redirect to index page
+          } else {
+              // Handle error (token invalid, etc.)
+              alert('Logout failed: ' + data.message);
+          }
+      } catch (error) {
+          console.error('Logout error:', error);
+          alert('Logout failed. Please try again.');
+      }
+  } else {
+      // If no token is found, redirect to login page directly
+      window.location.href = 'login.html';
+  }
+});
+
+
+</script>
